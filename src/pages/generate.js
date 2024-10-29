@@ -3,8 +3,9 @@ import { useState } from "react";
 import QRCode from "react-qr-code";
 import Link from "next/link";
 
-export default function Genarate() {
+export default function Generate() {
   const [qrCodeValue, setQrCodeValue] = useState("");
+
   return (
     <>
       <Head>
@@ -16,13 +17,13 @@ export default function Genarate() {
       <main className="flex flex-col h-screen justify-center text-center">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-4xl font-bold mb-6">Generate QR</h1>
-          {qrCodeValue != "" && <QRCode value={qrCodeValue} className="mb-6" />}
+          {qrCodeValue !== "" && <QRCode value={qrCodeValue} className="mb-6" />}
           <input
             className="border border-gray-400 p-2 rounded-lg"
             onChange={(e) => {
               setQrCodeValue(e.target.value);
             }}
-            placeholder="Try typing..."
+            placeholder="Type text to generate QR..."
           />
           <Link
             href={`/`}
